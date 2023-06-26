@@ -1,0 +1,52 @@
+*Put vs Patch
+Put---
+-> When we need to replace an existing Resource entirely, they can use PUT. 
+-> Put replaces the entire resource if it exists or creates new if it does not exist. 
+example:
+  When we want to update the Candidate name and email, 
+   we have to send all the parameters of the Candidate including those not to be updated in the request body, 
+    otherwise, it will simply replace the entire resource with the name and email.
+
+Patch---
+-> When we are doing a partial update, they can use  PATCH.
+-> Fields that need to be updated , only that field is updated without modifying the other field.
+ 
+example: 
+     if we want to update only email filed, then we have to send only that parameter and it will be updated 
+     while rest other field will be same.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+*Log levels in Spring-boot:
+(trace->debug->info->warning->error)
+1.>  trace:-
+   -> more detailed information about the flow of the system.
+   -> when we do trace logging everything below it will be printed(debug/info...)
+   -> logging.level.org.springframework=trace
+
+2.>  debug:-
+   -> Information about the flow of the system
+   -> when we want to monitor the information related to an application, like if the user got created.
+
+3.>  info:-
+   -> events occurring at the run time
+   -> They are just used to inform the developers that everything is working fine.
+   -> Default log level in spring-boot
+
+4.>  warning:-
+   -> warning for the errors.
+   -> we track the warning, which can lead the application to stop,
+     suppose we are trying to establish a connection, but somehow it is falling and not able to connect so we can use warn level.
+
+5.> error:-
+   -> runtime errors
+   -> used to capture the error in our application
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+**  @SpringBootApplication:-
+ It is a combination of 3 spring annotations:
+          1.) @ComponentScan-to look for other components, configurations, and services in the specified package.
+          2.) @Configuration- indicates that the class has @Bean definition methods.
+          3.) @EnablAutoConfiguration-to enable auto-configuration of the classes bases on the jars added
